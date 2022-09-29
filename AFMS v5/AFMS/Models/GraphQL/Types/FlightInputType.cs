@@ -14,7 +14,7 @@ namespace AFMS.Models.GraphQL.Types
             Field<NonNullGraphType<StringGraphType>>("flightno");
             Field<NonNullGraphType<StringGraphType>>("origin");
             Field<NonNullGraphType<StringGraphType>>("destination");
-            Field<NonNullGraphType<StringGraphType>>("flighttype");
+            Field<NonNullGraphType<StringGraphType>>("aircrafttype");
         }
     }
 }

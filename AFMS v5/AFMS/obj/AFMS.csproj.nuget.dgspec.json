@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Souvik.Maity\\Downloads\\AFMS v5\\AFMS\\AFMS.csproj": {}
+    "C:\\Users\\Souvik.Maity\\OneDrive - Shell\\Documents\\API\\AviationFuelManagementSystem\\AFMS v5\\AFMS\\AFMS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Souvik.Maity\\Downloads\\AFMS v5\\AFMS\\AFMS.csproj": {
+    "C:\\Users\\Souvik.Maity\\OneDrive - Shell\\Documents\\API\\AviationFuelManagementSystem\\AFMS v5\\AFMS\\AFMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Souvik.Maity\\Downloads\\AFMS v5\\AFMS\\AFMS.csproj",
+        "projectUniqueName": "C:\\Users\\Souvik.Maity\\OneDrive - Shell\\Documents\\API\\AviationFuelManagementSystem\\AFMS v5\\AFMS\\AFMS.csproj",
         "projectName": "AFMS",
-        "projectPath": "C:\\Users\\Souvik.Maity\\Downloads\\AFMS v5\\AFMS\\AFMS.csproj",
+        "projectPath": "C:\\Users\\Souvik.Maity\\OneDrive - Shell\\Documents\\API\\AviationFuelManagementSystem\\AFMS v5\\AFMS\\AFMS.csproj",
         "packagesPath": "C:\\Users\\Souvik.Maity\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Souvik.Maity\\Downloads\\AFMS v5\\AFMS\\obj\\",
+        "outputPath": "C:\\Users\\Souvik.Maity\\OneDrive - Shell\\Documents\\API\\AviationFuelManagementSystem\\AFMS v5\\AFMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

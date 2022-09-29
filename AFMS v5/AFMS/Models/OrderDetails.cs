@@ -12,9 +12,9 @@ namespace AFMS.Models
         public int OrderId { get; set; }
         public int ClientId { get; set; }
         public string FlightNo { get; set; }
-        public float FuelAmt { get; set; }
+        public double FuelAmt { get; set; }
         public int FuelId { get; set; }
-        public DateTime OrderPlaceDate { get; set; }
+        public string OrderPlaceDate { get; set; }
         public DateTime? OrderDeliveryDate { get; set; }
         public string Status { get; set; }
 

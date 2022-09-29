@@ -16,8 +16,8 @@ namespace AFMS.Models
 
         public int FuelId { get; set; }
         public string FuelName { get; set; }
-        public float FuelPrevCost { get; set; }
-        public float FuelCurrentPrice { get; set; }
+        public double FuelPrevCost { get; set; }
+        public double FuelCurrentPrice { get; set; }
         public string LastUpdated { get; set; }
         public string Place { get; set; }
 
