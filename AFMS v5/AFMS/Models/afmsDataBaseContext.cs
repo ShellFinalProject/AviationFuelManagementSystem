@@ -30,7 +30,7 @@ namespace AFMS.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=afmsDataBase;Integrated Security=true;");
+                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLlocaldb;Database=afmsDataBase;Integrated Security=true");
             }
         }
 
@@ -86,7 +86,7 @@ namespace AFMS.Models
                     .IsUnique();
 
                 entity.HasIndex(e => e.Email)
-                    .HasName("UQ__clientTa__A9D1053401F71D46")
+                    .HasName("UQ__clientTa__A9D1053461052543")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Gstin)
@@ -107,7 +107,7 @@ namespace AFMS.Models
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(20)
+                    .HasMaxLength(40)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Gstin)
@@ -173,7 +173,7 @@ namespace AFMS.Models
                 entity.ToTable("fuelList");
 
                 entity.HasIndex(e => e.FuelName)
-                    .HasName("UQ__fuelList__37268118FC9F1F36")
+                    .HasName("UQ__fuelList__372681181316192A")
                     .IsUnique();
 
                 entity.Property(e => e.FuelId).HasColumnName("fuelID");
@@ -183,12 +183,17 @@ namespace AFMS.Models
                 entity.Property(e => e.FuelName)
                     .IsRequired()
                     .HasColumnName("fuelName")
-                    .HasMaxLength(15)
+                    .HasMaxLength(25)
                     .IsUnicode(false);
 
                 entity.Property(e => e.FuelPrevCost).HasColumnName("fuelPrevCost");
 
-                entity.Property(e => e.LastUpdated).HasColumnName("lastUpdated");
+                entity.Property(e => e.LastUpdated)
+                    .IsRequired()
+                    .HasColumnName("lastUpdated")
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')");
 
                 entity.Property(e => e.Place)
                     .IsRequired()
@@ -204,7 +209,7 @@ namespace AFMS.Models
                 entity.ToTable("orderDetails");
 
                 entity.HasIndex(e => e.OrderPlaceDate)
-                    .HasName("UQ__orderDet__7799D7E56683F43C")
+                    .HasName("UQ__orderDet__7799D7E515826F03")
                     .IsUnique();
 
                 entity.Property(e => e.OrderId).HasColumnName("orderID");
@@ -212,6 +217,7 @@ namespace AFMS.Models
                 entity.Property(e => e.ClientId).HasColumnName("clientID");
 
                 entity.Property(e => e.FlightNo)
+                    .IsRequired()
                     .HasColumnName("flightNo")
                     .HasMaxLength(10)
                     .IsUnicode(false);
@@ -225,27 +231,34 @@ namespace AFMS.Models
                     .HasColumnType("date");
 
                 entity.Property(e => e.OrderPlaceDate)
+                    .IsRequired()
                     .HasColumnName("orderPlaceDate")
-                    .HasColumnType("date");
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Status)
+                    .IsRequired()
                     .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('Received')");
 
                 entity.HasOne(d => d.Client)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.ClientId)
-                    .HasConstraintName("FK__orderDeta__clien__5165187F");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__orderDeta__clien__6E01572D");
 
                 entity.HasOne(d => d.FlightNoNavigation)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.FlightNo)
-                    .HasConstraintName("FK__orderDeta__fligh__52593CB8");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__orderDeta__fligh__6EF57B66");
 
                 entity.HasOne(d => d.Fuel)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.FuelId)
-                    .HasConstraintName("FK__orderDeta__fuelI__534D60F1");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__orderDeta__fuelI__6FE99F9F");
             });
 
             OnModelCreatingPartial(modelBuilder);

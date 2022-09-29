@@ -19,13 +19,13 @@ namespace AFMS.Models.GraphQL.Types
 
             Field<ListGraphType<FlightType>>(
               "flights",
-              arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "flightNo" }),
+              arguments: new QueryArguments(new QueryArgument<StringGraphType> { Name = "flightNo" }),
               resolve: context => flightRepository.GetFlightsbyNo(context.Source.FlightNo)
            );
 
             Field<ListGraphType<FlightType>>(
               "flightsbyClientId",
-              arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "flightNo" }),
+              arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "clientId" }),
               resolve: context => flightRepository.GetFlightsbyClientId(context.Source.ClientId)
            );
         }

@@ -12,9 +12,9 @@ namespace AFMS.Models.GraphQL.Types
         {
             Field<NonNullGraphType<IntGraphType>>("clientid");
             Field<NonNullGraphType<StringGraphType>>("flightno");
-            Field<NonNullGraphType<DecimalGraphType>>("fuelamt");
+            Field<NonNullGraphType<FloatGraphType>>("fuelamt");
             Field<NonNullGraphType<IntGraphType>>("fuelid");
-            Field<NonNullGraphType<DateTimeGraphType>>("orderplacedate");
+            Field<NonNullGraphType<StringGraphType>>("orderplacedate");
         }
     }
 }
